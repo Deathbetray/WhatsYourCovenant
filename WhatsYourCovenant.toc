@@ -1,0 +1,14 @@
+## Interface: 90005
+## Author: Deathbetray
+## Version: 1.3.1
+
+## Title: Whats Your Covenant
+## Notes: Displays other players' covenants.
+## Notes-ruRU: Показывает ковенанты других игроков.
+
+## SavedVariables: WhatsYourCovenantConfig, WhatsYourCovenantData
+
+
+Localisation.lua
+
+WhatsYourCovenant.xml
