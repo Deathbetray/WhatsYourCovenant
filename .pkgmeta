@@ -1,1 +1,7 @@
 package-as: WhatsYourCovenant
+
+move-folders:
+	Deathbetray/db/WhatsYourCovenant_DB_EU_A: WhatsYourCovenant_DB_EU_A
+	Deathbetray/db/WhatsYourCovenant_DB_EU_H: WhatsYourCovenant_DB_EU_H
+	Deathbetray/db/WhatsYourCovenant_DB_US_A: WhatsYourCovenant_DB_US_A
+	Deathbetray/db/WhatsYourCovenant_DB_US_H: WhatsYourCovenant_DB_US_H
