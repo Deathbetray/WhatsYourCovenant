@@ -753,4 +753,3 @@ function WhatsYourCovenant_OnLoad()
 		end)
 end
 
-
