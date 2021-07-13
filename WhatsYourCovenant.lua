@@ -1,4 +1,6 @@
 ----- WhatsYourCovenant Version Changes -----
+--- v1.4.0
+-- Updated interface version to 90100.
 --- v1.3.1
 -- Fixed an issue with the version upgrade code which meant no colours existed.
 --- v1.3.0
