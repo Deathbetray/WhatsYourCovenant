@@ -1,4 +1,6 @@
 ----- WhatsYourCovenant Version Changes -----
+--- v1.4.1
+-- Implemented support for saving's a pandaren's covenant to the personal database.
 --- v1.4.0
 -- Updated interface version to 90100.
 --- v1.3.1
@@ -137,6 +139,13 @@ local factionByRace = {
 
 local playerRegion = regions[GetCurrentRegion()]
 local playerFaction = select(1, UnitFactionGroup("player"))
+local function GetOpposingFaction()
+	if (playerFaction == "Horde") then
+		return "Alliance"
+	else
+		return "Horde"
+	end
+end
 
 
 local function SetCovenantColourDefaults()
@@ -473,13 +482,35 @@ local function OnCombatLogEventUnfiltered(...)
 				end
 				
 				-- Attempt to get the player's faction. There are no API functions that will give
-				-- us the faction based on a GUID so we need to reason based on their race. Some
-				-- issues with doing it this way include:
-				--  - Pandaren faction can't be determined by race (the same race can be either).
-				--  - Some item/effects can change your race (though I don't know if it affects this).
+				-- us the faction based on a GUID so we need to reason based on their race. There
+				-- is potential that this could be tricked by toys/effects that change your race
+				-- (though I don't know if it affects this).
+				local covenantSpell = covenantSpells[spellId]
 				local faction = factionByRace[race]
 				if (faction ~= nil) then
-					AddPlayerToPersonalDatabase(faction, realm, name, covenantSpells[spellId])
+					AddPlayerToPersonalDatabase(faction, realm, name, covenantSpell)
+				elseif (race == "Pandaren") then
+					-- If they're pandaren then we can't determine their faction purely by knowing
+					-- their race because pandaren start off as neutral and choose later.
+					-- We can make a reasonable estimate as to what faction they are based on a few
+					-- flags however THIS CAN STILL BE TRICKED so isn't fool-proof.
+					if (bit.band(sourceFlags, COMBATLOG_OBJECT_TYPE_PLAYER) > 0) then
+						if (bit.band(sourceFlags, COMBATLOG_OBJECT_CONTROL_PLAYER) > 0) then
+							-- If they're in our group then they must be our faction.
+							if (bit.band(sourceFlags, COMBATLOG_OBJECT_AFFILIATION_MINE) > 0 or
+								bit.band(sourceFlags, COMBATLOG_OBJECT_AFFILIATION_PARTY) > 0 or
+								bit.band(sourceFlags, COMBATLOG_OBJECT_AFFILIATION_PARTY) > 0) then
+								--print(sourceName.. " is a FRIENDLY pandaren (in our group): " ..playerFaction)
+								AddPlayerToPersonalDatabase(playerFaction, realm, name, covenantSpell)
+							elseif (bit.band(sourceFlags, COMBATLOG_OBJECT_REACTION_FRIENDLY) > 0) then
+								--print(sourceName.. " is a FRIENDLY pandaren: " ..playerFaction)
+								AddPlayerToPersonalDatabase(playerFaction, realm, name, covenantSpell)
+							elseif (bit.band(sourceFlags, COMBATLOG_OBJECT_REACTION_HOSTILE) > 0) then
+								--print(sourceName.. " is a HOSTILE pandaren: " ..GetOpposingFaction())
+								AddPlayerToPersonalDatabase(GetOpposingFaction(), realm, name, covenantSpell)
+							end
+						end
+					end
 				end
 			end
 		end

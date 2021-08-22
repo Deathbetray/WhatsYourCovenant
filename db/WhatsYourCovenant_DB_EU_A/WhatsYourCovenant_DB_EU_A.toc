@@ -1,6 +1,6 @@
 ## Interface: 90100
 ## Author: Deathbetray
-## Version: 1.4.0
+## Version: 1.4.1
 
 ## Title: Whats Your Covenant (Europe - Alliance)
 ## Notes: Provides a database for the WhatsYourCovenant addon.
