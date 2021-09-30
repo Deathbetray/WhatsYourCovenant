@@ -1,4 +1,6 @@
 ----- WhatsYourCovenant Version Changes -----
+--- v1.4.2
+-- Icons are now visible in groupfinder (rather than requiring hovering over each player).
 --- v1.4.1
 -- Implemented support for saving's a pandaren's covenant to the personal database.
 --- v1.4.0
@@ -108,6 +110,18 @@ local covenantSpells = {
 	[326059] = 4,	-- (Shaman)			Primordial Wave
 	[325289] = 4,	-- (Warlock)		Decimating Bolt
 	[324143] = 4,	-- (Warrior)		Conqueror's Banner
+}
+
+local covenantIconTextures = {
+	--3257748,	-- Kyrian
+	--3257751,	-- Venthyr
+	--3257750,	-- NightFae
+	--3257749,	-- Necrolord
+	
+	3641395,	-- Kyrian
+	3641397,	-- Venthyr
+	3641394,	-- NightFae
+	3641396,	-- Necrolord
 }
 
 -- NOTE: Pandaren's faction can't be determined by their race alone, so they will be ignored.
@@ -465,6 +479,71 @@ local function OnShowGameTooltip(tooltip)
 end
 GameTooltip:HookScript("OnShow", OnShowGameTooltip)
 
+-- https://www.townlong-yak.com/framexml/live/LFGList.lua#1360
+hooksecurefunc("LFGListApplicationViewer_UpdateResults", function(self)
+	local offset = HybridScrollFrame_GetOffset(self.ScrollFrame)
+	local buttons = self.ScrollFrame.buttons
+	
+	for i=1, #buttons do
+		local button = buttons[i]
+		local appId = self.applicants[i + offset]
+		if (appId) then
+			local applicantInfo = C_LFGList.GetApplicantInfo(appId)
+			for m=1, applicantInfo.numMembers do
+				local member = button.Members[m]
+				if (member ~= nil) then
+					if (not WhatsYourCovenantConfig.groupfinder_IconsDisplay) then
+						-- If we have icons disabled in the groupfinder then ensure we hide any
+						-- frames we've created.
+						if (member.covenantIcon) then
+							member.covenantIcon:Hide()
+						end
+					else
+						local name, class = C_LFGList.GetApplicantMemberInfo(appId, m)
+						local idx = string.find(name, '-')
+						local realm = GetRealmName()
+						if (idx ~= nil) then
+							realm = name:sub(idx+1)
+							name = name:sub(0, idx-1)
+						end
+						
+						-- Create the covenant icon frame if it doesn't already exist.
+						if (not member.covenantIcon) then
+							member.covenantIcon = member:CreateTexture("$parent.CovenantIcon", "ARTWORK")
+							member.covenantIcon:SetPoint("LEFT", member, "LEFT", 90, 0)
+							member.covenantIcon:SetWidth(15)
+							member.covenantIcon:SetHeight(15)
+							member.covenantIcon:SetTexCoord(0.1, 0.9, 0, 1)
+						end
+						
+						local covenantId = GetCovenantId(realm, name)
+						if (covenantId ~= nil) then
+							-- Set the appropriate covenant icon texture for the player's covenant.
+							member.covenantIcon:SetTexture(covenantIconTextures[covenantId])
+							
+							-- Blend modes: "Add", "Alphakey", "Blend", "Disable", and "Mod"
+							member.covenantIcon:SetBlendMode("Add")
+							
+							-- Apparently only a blend mode is necessary?
+							--local maskTextures = {
+							--	4071453,	-- RuneCarvingKyrianSigilMask
+							--	4071456,	-- RuneCarvingNecrolordSigilMask
+							--	4071459,	-- RuneCarvingNightfaeSigilMask
+							--	4071450,	-- RuneCarvingVenthyrSigilMask
+							--}
+							--member.covenantIcon:SetMask(maskTextures[i % 4 + 1])
+							
+							member.covenantIcon:Show()
+						else
+							member.covenantIcon:Hide()
+						end
+					end
+				end
+			end
+		end
+	end
+end)
+
 
 local function OnCombatLogEventUnfiltered(...)
 	local timestamp, subevent, _, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags = ...
@@ -563,6 +642,9 @@ local function WhatsYourCovenant_OnPlayerLogin()
 		WhatsYourCovenantConfig.usability_CovenantColours = {}
 		SetCovenantColourDefaults()
 	end
+	if (prevVersion < ConvertVersionStrToInt("1.4.2")) then
+		WhatsYourCovenantConfig.groupfinder_IconsDisplay = true
+	end
 end
 
 local function WhatsYourCovenant_ResetConfig()
@@ -572,6 +654,8 @@ local function WhatsYourCovenant_ResetConfig()
 		unitTooltip_Display = true,
 		
 		contextualTooltip_Display = true,
+		
+		groupfinder_IconsDisplay = true,
 		
 		database_BothFactions = true,
 		database_GeneratePersonal = true,
@@ -598,6 +682,7 @@ end
 local function WhatsYourCovenant_SetCheckButtonState()
 	WhatsYourCovenant_UnitTooltipDisplay:SetChecked(WhatsYourCovenantConfig.unitTooltip_Display)
 	WhatsYourCovenant_ContextualTooltipDisplay:SetChecked(WhatsYourCovenantConfig.contextualTooltip_Display)
+	WhatsYourCovenant_GroupfinderIconsDisplay:SetChecked(WhatsYourCovenantConfig.groupfinder_IconsDisplay)
 	WhatsYourCovenant_DatabaseBothFactions:SetChecked(WhatsYourCovenantConfig.database_BothFactions)
 	WhatsYourCovenant_DatabaseGeneratePersonal:SetChecked(WhatsYourCovenantConfig.database_GeneratePersonal)
 	WhatsYourCovenant_UsabilityColourise:SetChecked(WhatsYourCovenantConfig.usability_Colourise)
@@ -661,6 +746,24 @@ local function InitInterfaceOptions()
 	currentOffsetX = 0
 	
 	------------------------------
+	-- Groupfinder
+	currentOffsetX = -offsetX
+	local optionsGroupfinderTooltipTitle = options:CreateFontString(nil, "ARTWORK")
+	optionsGroupfinderTooltipTitle:SetFontObject(GameFontWhite)
+	optionsGroupfinderTooltipTitle:SetJustifyH("LEFT") 
+	optionsGroupfinderTooltipTitle:SetJustifyV("TOP")
+	optionsGroupfinderTooltipTitle:ClearAllPoints()
+	optionsGroupfinderTooltipTitle:SetPoint("TOPLEFT", optionsContextualTooltipDisplay, "BOTTOMLEFT", currentOffsetX, subtitleOffsetY)
+	optionsGroupfinderTooltipTitle:SetText(LocStr(nil, "Groupfinder"))
+	currentOffsetX = offsetX
+	
+	local optionsGroupfinderIconsDisplay = CreateFrame("CheckButton", "WhatsYourCovenant_GroupfinderIconsDisplay", options, "OptionsCheckButtonTemplate")
+	optionsGroupfinderIconsDisplay:SetPoint("TOPLEFT", optionsGroupfinderTooltipTitle, "BOTTOMLEFT", currentOffsetX, optionOffsetY)
+	optionsGroupfinderIconsDisplay:SetScript("OnClick", function(self) WhatsYourCovenantConfig.groupfinder_IconsDisplay = not WhatsYourCovenantConfig.groupfinder_IconsDisplay end)
+	WhatsYourCovenant_GroupfinderIconsDisplayText:SetText(LocStr(nil, "Show Covenant icons"))
+	currentOffsetX = 0
+	
+	------------------------------
 	-- Database
 	currentOffsetX = -offsetX
 	local optionsDatabaseTitle = options:CreateFontString(nil, "ARTWORK")
@@ -668,7 +771,7 @@ local function InitInterfaceOptions()
 	optionsDatabaseTitle:SetJustifyH("LEFT") 
 	optionsDatabaseTitle:SetJustifyV("TOP")
 	optionsDatabaseTitle:ClearAllPoints()
-	optionsDatabaseTitle:SetPoint("TOPLEFT", optionsContextualTooltipDisplay, "BOTTOMLEFT", currentOffsetX, subtitleOffsetY)
+	optionsDatabaseTitle:SetPoint("TOPLEFT", optionsGroupfinderIconsDisplay, "BOTTOMLEFT", currentOffsetX, subtitleOffsetY)
 	optionsDatabaseTitle:SetText(LocStr(nil, "Database"))
 	currentOffsetX = offsetX
 	
@@ -684,7 +787,7 @@ local function InitInterfaceOptions()
 	WhatsYourCovenant_DatabaseGeneratePersonalText:SetText(LocStr(nil, "Generate a personal database (based on seeing players use abilities)"))
 	
 	------------------------------
-	-- Database
+	-- Usability
 	currentOffsetX = -offsetX
 	local optionsUsabilityTitle = options:CreateFontString(nil, "ARTWORK")
 	optionsUsabilityTitle:SetFontObject(GameFontWhite)

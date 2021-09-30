@@ -102,6 +102,34 @@ L["Show Covenant in contextual tooltip"] = {
 	["zhTW"] = "在上下文工具提示中显示盟约",
 }
 
+L["Groupfinder"] = {
+	["enUS"] = "Groupfinder",
+	["frFR"] = "Recherche de Groupe",
+	["deDE"] = "Gruppenfinder",
+	["itIT"] = "Ricerca Gruppi",
+	["esES"] = "Buscador de Grupos",
+	["esMX"] = "Buscador de Grupos",
+	["ptBR"] = "Wyszukiwarka Grup",
+	["ruRU"] = "поиск группы",
+	["koKR"] = "그룹 찾기",
+	["zhCN"] = "组查找器",
+	["zhTW"] = "组查找器",
+}
+
+L["Show Covenant icons"] = {
+	["enUS"] = "Show Covenant icons",
+	["frFR"] = "Afficher les icônes d'alliance",
+	["deDE"] = "Bündnissymbole anzeigen",
+	["itIT"] = "Mostra le icone del patto",
+	["esES"] = "Mostrar iconos de Pacto",
+	["esMX"] = "Mostrar iconos de Pacto",
+	["ptBR"] = "Pokaż ikony Przymierza",
+	["ruRU"] = "Показать значки Ковенанта",
+	["koKR"] = "성약 아이콘 표시",
+	["zhCN"] = "显示契约图标",
+	["zhTW"] = "显示契约图标",
+}
+
 L["Database"] = {
 	["enUS"] = "Database",
 	["frFR"] = "Base de données",
