@@ -30,7 +30,7 @@ end
 -----------------------------
 L["Covenant: %s"] = {
 	["enUS"] = "Covenant: %s",
-	["frFR"] = "Engagement: %s",
+	["frFR"] = "Congrégation: %s",
 	["deDE"] = "Bund: %s",
 	["itIT"] = "Patto: %s",
 	["esES"] = "Pacto: %s",
@@ -62,7 +62,7 @@ L["Unit Tooltip"] = {
 
 L["Show Covenant in unit's mouseover tooltip"] = {
 	["enUS"] = "Show Covenant in unit's mouseover tooltip",
-	["frFR"] = "Afficher l'alliance dans l'info-bulle de survol de l'unité",
+	["frFR"] = "Afficher la congrégation dans l'info-bulle au survol de l'unité",
 	["deDE"] = "Zeigen Sie Covenant im Mouseover-Tooltip der Einheit an",
 	["itIT"] = "Mostra Covenant nel tooltip del mouseover dell'unità",
 	["esES"] = "Mostrar Pacto en la descripción emergente del mouse sobre la unidad",
@@ -76,7 +76,7 @@ L["Show Covenant in unit's mouseover tooltip"] = {
 
 L["Contextual Tooltip (world map, groupfinder, etc.)"] = {
 	["enUS"] = "Contextual Tooltip (world map, groupfinder, etc.)",
-	["frFR"] = "Info-bulle contextuelle (carte du monde, chercheur de groupe, etc.)",
+	["frFR"] = "Info-bulle contextuelle (carte du monde, recherche de groupe, etc.)",
 	["deDE"] = "Kontext-Tooltip (Weltkarte, Gruppenfinder usw.)",
 	["itIT"] = "Tooltip contestuale (mappa del mondo, groupfinder, ecc.)",
 	["esES"] = "Información sobre herramientas contextual (mapa mundial, buscador de grupos, etc.)",
@@ -90,7 +90,7 @@ L["Contextual Tooltip (world map, groupfinder, etc.)"] = {
 
 L["Show Covenant in contextual tooltip"] = {
 	["enUS"] = "Show Covenant in contextual tooltip",
-	["frFR"] = "Afficher l'alliance dans une info-bulle contextuelle",
+	["frFR"] = "Afficher la congrégation dans l'info-bulle contextuelle",
 	["deDE"] = "Zeigen Sie Covenant im Kontext-Tooltip",
 	["itIT"] = "Mostra Patto nel suggerimento contestuale",
 	["esES"] = "Mostrar Pacto en descripción emergente contextual",
@@ -118,7 +118,7 @@ L["Groupfinder"] = {
 
 L["Show Covenant icons"] = {
 	["enUS"] = "Show Covenant icons",
-	["frFR"] = "Afficher les icônes d'alliance",
+	["frFR"] = "Afficher les icônes de congrégation",
 	["deDE"] = "Bündnissymbole anzeigen",
 	["itIT"] = "Mostra le icone del patto",
 	["esES"] = "Mostrar iconos de Pacto",
@@ -146,7 +146,7 @@ L["Database"] = {
 
 L["View opposing faction's Covenant"] = {
 	["enUS"] = "View opposing faction's Covenant",
-	["frFR"] = "Voir le Pacte de la faction adverse",
+	["frFR"] = "Voir la congrégation de la faction adverse",
 	["deDE"] = "Sehen Sie sich den Bund der gegnerischen Fraktion an",
 	["itIT"] = "Visualizza il Patto della fazione avversaria",
 	["esES"] = "Ver el Pacto de la facción contraria",
@@ -160,7 +160,7 @@ L["View opposing faction's Covenant"] = {
 
 L["Generate a personal database (based on seeing players use abilities)"] = {
 	["enUS"] = "Generate a personal database (based on seeing players use abilities)",
-	["frFR"] = "Générez une base de données personnelle (basée sur la façon dont les joueurs utilisent leurs capacités)",
+	["frFR"] = "Générez une base de données personnelle (basée sur le fait de voir les joueurs utiliser leurs capacités)",
 	["deDE"] = "Generieren Sie eine persönliche Datenbank (basierend darauf, wie Spieler Fähigkeiten einsetzen)",
 	["itIT"] = "Genera un database personale (basato sul vedere i giocatori usare le abilità)",
 	["esES"] = "Genere una base de datos personal (basada en ver a los jugadores usar habilidades)",
@@ -174,7 +174,7 @@ L["Generate a personal database (based on seeing players use abilities)"] = {
 
 L["Usability"] = {
 	["enUS"] = "Usability",
-	["frFR"] = "Convivialité",
+	["frFR"] = "Ergonomie",
 	["deDE"] = "Benutzerfreundlichkeit",
 	["itIT"] = "Usabilità",
 	["esES"] = "Usabilidad",
@@ -188,7 +188,7 @@ L["Usability"] = {
 
 L["Colourise the covenant names"] = {
 	["enUS"] = "Colourise the covenant names",
-	["frFR"] = "Colorez les noms des alliances",
+	["frFR"] = "Colorez les noms de congrégation",
 	["deDE"] = "Färbe die Namen des Bundes",
 	["itIT"] = "Colora i nomi delle alleanze",
 	["esES"] = "Colorea los nombres del pacto",
