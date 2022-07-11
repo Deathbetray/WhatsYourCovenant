@@ -38,8 +38,8 @@ L["Covenant: %s"] = {
 	["ptBR"] = "Pacto: %s",
 	["ruRU"] = "Ковенант: %s",	-- courtesy of Hollicsh (Curseforge)
 	["koKR"] = "계약: %s",
-	["zhCN"] = "盟約: %s",
-	["zhTW"] = "盟约: %s",
+	["zhTW"] = "盟約: %s",
+	["zhCN"] = "盟约: %s",
 }
 
 
@@ -56,8 +56,8 @@ L["Unit Tooltip"] = {
 	["ptBR"] = "Dica de ferramenta da unidade",
 	["ruRU"] = "Подсказка объекта",
 	["koKR"] = "유닛 툴팁",
-	["zhCN"] = "單位工具提示",
-	["zhTW"] = "单位工具提示",
+	["zhTW"] = "單位工具提示",
+	["zhCN"] = "单位工具提示",
 }
 
 L["Show Covenant in unit's mouseover tooltip"] = {
@@ -70,8 +70,8 @@ L["Show Covenant in unit's mouseover tooltip"] = {
 	["ptBR"] = "Mostrar Covenant na dica de mouseover da unidade",
 	["ruRU"] = "Показать Ковенант во всплывающей подсказке при наведении курсора мыши",
 	["koKR"] = "유닛의 마우스 오버 툴팁에 언약 표시",
-	["zhCN"] = "在單位的鼠標懸停工具提示中顯示盟約",
-	["zhTW"] = "在单位的鼠标悬停工具提示中显示盟约",
+	["zhTW"] = "在單位的鼠標懸停工具提示中顯示盟約",
+	["zhCN"] = "在单位的鼠标悬停工具提示中显示盟约",
 }
 
 L["Contextual Tooltip (world map, groupfinder, etc.)"] = {
@@ -84,8 +84,8 @@ L["Contextual Tooltip (world map, groupfinder, etc.)"] = {
 	["ptBR"] = "Dica de ferramenta contextual (mapa mundial, groupfinder, etc.)",
 	["ruRU"] = "Контекстная подсказка (карта мира, поиск групп и т.д.)",		-- courtesy of Hollicsh (Curseforge)
 	["koKR"] = "상황 별 툴팁 (세계지도, 그룹 파인더 등)",
-	["zhCN"] = "內容相關的工具提示（世界地圖，groupfinder等）",
-	["zhTW"] = "内容相关的工具提示（世界地图，groupfinder等）",
+	["zhTW"] = "內容相關的工具提示（世界地圖，groupfinder等）",
+	["zhCN"] = "内容相关的工具提示（世界地图，groupfinder等）",
 }
 
 L["Show Covenant in contextual tooltip"] = {
@@ -98,8 +98,8 @@ L["Show Covenant in contextual tooltip"] = {
 	["ptBR"] = "Mostrar Covenant na dica contextual",
 	["ruRU"] = "Показать Ковенант в контекстной подсказке",
 	["koKR"] = "상황 별 툴팁에 언약 표시",
-	["zhCN"] = "在上下文工具提示中顯示盟約",
-	["zhTW"] = "在上下文工具提示中显示盟约",
+	["zhTW"] = "在上下文工具提示中顯示盟約",
+	["zhCN"] = "在上下文工具提示中显示盟约",
 }
 
 L["Groupfinder"] = {
@@ -112,8 +112,8 @@ L["Groupfinder"] = {
 	["ptBR"] = "Wyszukiwarka Grup",
 	["ruRU"] = "Поиск группы",
 	["koKR"] = "그룹 찾기",
-	["zhCN"] = "组查找器",
 	["zhTW"] = "组查找器",
+	["zhCN"] = "组查找器",
 }
 
 L["Show Covenant icons"] = {
@@ -126,8 +126,8 @@ L["Show Covenant icons"] = {
 	["ptBR"] = "Pokaż ikony Przymierza",
 	["ruRU"] = "Показать значки Ковенанта",
 	["koKR"] = "성약 아이콘 표시",
-	["zhCN"] = "显示契约图标",
 	["zhTW"] = "显示契约图标",
+	["zhCN"] = "显示契约图标",
 }
 
 L["Database"] = {
@@ -140,8 +140,8 @@ L["Database"] = {
 	["ptBR"] = "Base de dados",
 	["ruRU"] = "База данных",
 	["koKR"] = "데이터 베이스",
-	["zhCN"] = "數據庫",
-	["zhTW"] = "数据库",
+	["zhTW"] = "數據庫",
+	["zhCN"] = "数据库",
 }
 
 L["View opposing faction's Covenant"] = {
@@ -154,8 +154,8 @@ L["View opposing faction's Covenant"] = {
 	["ptBR"] = "Veja o Pacto da facção oposta",
 	["ruRU"] = "Просмотр Ковенанта противоположной фракции",	-- courtesy of Hollicsh (Curseforge)
 	["koKR"] = "상대 진영의 서약보기",
-	["zhCN"] = "查看反對派的盟約",
-	["zhTW"] = "查看反对派的盟约",
+	["zhTW"] = "查看反對派的盟約",
+	["zhCN"] = "查看反对派的盟约",
 }
 
 L["Generate a personal database (based on seeing players use abilities)"] = {
@@ -168,8 +168,8 @@ L["Generate a personal database (based on seeing players use abilities)"] = {
 	["ptBR"] = "Gere um banco de dados pessoal (com base em ver os jogadores usarem as habilidades)",
 	["ruRU"] = "Создать личную базу данных (основываясь на том, как игроки используют способности)",	-- courtesy of Hollicsh (Curseforge)
 	["koKR"] = "개인 데이터베이스 생성 (플레이어가 능력을 사용하는 것을 기준으로)",
-	["zhCN"] = "生成個人數據庫（基於玩家的使用能力）",
-	["zhTW"] = "生成个人数据库（基于玩家的使用能力）",
+	["zhTW"] = "生成個人數據庫（基於玩家的使用能力）",
+	["zhCN"] = "生成个人数据库（基于玩家的使用能力）",
 }
 
 L["Usability"] = {
@@ -182,8 +182,8 @@ L["Usability"] = {
 	["ptBR"] = "Usabilidade",
 	["ruRU"] = "Удобство использования",
 	["koKR"] = "유용성",
-	["zhCN"] = "易用性",
 	["zhTW"] = "易用性",
+	["zhCN"] = "易用性",
 }
 
 L["Colourise the covenant names"] = {
@@ -196,8 +196,8 @@ L["Colourise the covenant names"] = {
 	["ptBR"] = "Colorir os nomes da aliança",
 	["ruRU"] = "Окрасить имена Ковенантов",	-- courtesy of Hollicsh (Curseforge)
 	["koKR"] = "언약 이름을 색칠하십시오",
-	["zhCN"] = "為盟約名稱上色",
-	["zhTW"] = "为盟约名称上色",
+	["zhTW"] = "為盟約名稱上色",
+	["zhCN"] = "为盟约名称上色",
 }
 
 L["Select Colour"] = {
@@ -210,8 +210,8 @@ L["Select Colour"] = {
 	["ptBR"] = "Wybierz kolor",
 	["ruRU"] = "Выбрать цвет",
 	["koKR"] = "색상 선택",
-	["zhCN"] = "選擇顏色",
-	["zhTW"] = "选择颜色",
+	["zhTW"] = "選擇顏色",
+	["zhCN"] = "选择颜色",
 }
 
 L["Reset Covenant Colours to Default"] = {
@@ -224,8 +224,8 @@ L["Reset Covenant Colours to Default"] = {
 	["ptBR"] = "Zresetuj kolory do domyślnych",
 	["ruRU"] = "Сбросить цвета по умолчанию",
 	["koKR"] = "색상을 기본값으로 재설정",
-	["zhCN"] = "將顏色重置為默認值",
-	["zhTW"] = "将颜色重置为默认值",
+	["zhTW"] = "將顏色重置為默認值",
+	["zhCN"] = "将颜色重置为默认值",
 }
 
 -- Template
