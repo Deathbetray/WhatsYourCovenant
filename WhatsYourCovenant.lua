@@ -1,4 +1,7 @@
 ----- WhatsYourCovenant Version Changes -----
+--- v1.4.3
+-- Updated to interface version 100000 (for Dragonflight).
+-- Fixed CreateFrame calls due to API change (thanks DakJaniels).
 --- v1.4.2
 -- Icons are now visible in groupfinder (rather than requiring hovering over each player).
 --- v1.4.1
@@ -721,7 +724,7 @@ local function InitInterfaceOptions()
 	optionsUnitTooltipTitle:SetText(LocStr(nil, "Unit Tooltip"))
 	currentOffsetX = offsetX
 	
-	local optionsUnitTooltipDisplay = CreateFrame("CheckButton", "WhatsYourCovenant_UnitTooltipDisplay", options, "OptionsCheckButtonTemplate")
+	local optionsUnitTooltipDisplay = CreateFrame("CheckButton", "WhatsYourCovenant_UnitTooltipDisplay", options, "InterfaceOptionsCheckButtonTemplate")
 	optionsUnitTooltipDisplay:SetPoint("TOPLEFT", optionsUnitTooltipTitle, "BOTTOMLEFT", currentOffsetX, optionOffsetY)
 	optionsUnitTooltipDisplay:SetScript("OnClick", function(self) WhatsYourCovenantConfig.unitTooltip_Display = not WhatsYourCovenantConfig.unitTooltip_Display end)
 	WhatsYourCovenant_UnitTooltipDisplayText:SetText(LocStr(nil, "Show Covenant in unit's mouseover tooltip"))
@@ -739,7 +742,7 @@ local function InitInterfaceOptions()
 	optionsContextualTooltipTitle:SetText(LocStr(nil, "Contextual Tooltip (world map, groupfinder, etc.)"))
 	currentOffsetX = offsetX
 	
-	local optionsContextualTooltipDisplay = CreateFrame("CheckButton", "WhatsYourCovenant_ContextualTooltipDisplay", options, "OptionsCheckButtonTemplate")
+	local optionsContextualTooltipDisplay = CreateFrame("CheckButton", "WhatsYourCovenant_ContextualTooltipDisplay", options, "InterfaceOptionsCheckButtonTemplate")
 	optionsContextualTooltipDisplay:SetPoint("TOPLEFT", optionsContextualTooltipTitle, "BOTTOMLEFT", currentOffsetX, optionOffsetY)
 	optionsContextualTooltipDisplay:SetScript("OnClick", function(self) WhatsYourCovenantConfig.contextualTooltip_Display = not WhatsYourCovenantConfig.contextualTooltip_Display end)
 	WhatsYourCovenant_ContextualTooltipDisplayText:SetText(LocStr(nil, "Show Covenant in contextual tooltip"))
@@ -757,7 +760,7 @@ local function InitInterfaceOptions()
 	optionsGroupfinderTooltipTitle:SetText(LocStr(nil, "Groupfinder"))
 	currentOffsetX = offsetX
 	
-	local optionsGroupfinderIconsDisplay = CreateFrame("CheckButton", "WhatsYourCovenant_GroupfinderIconsDisplay", options, "OptionsCheckButtonTemplate")
+	local optionsGroupfinderIconsDisplay = CreateFrame("CheckButton", "WhatsYourCovenant_GroupfinderIconsDisplay", options, "InterfaceOptionsCheckButtonTemplate")
 	optionsGroupfinderIconsDisplay:SetPoint("TOPLEFT", optionsGroupfinderTooltipTitle, "BOTTOMLEFT", currentOffsetX, optionOffsetY)
 	optionsGroupfinderIconsDisplay:SetScript("OnClick", function(self) WhatsYourCovenantConfig.groupfinder_IconsDisplay = not WhatsYourCovenantConfig.groupfinder_IconsDisplay end)
 	WhatsYourCovenant_GroupfinderIconsDisplayText:SetText(LocStr(nil, "Show Covenant icons"))
@@ -775,13 +778,13 @@ local function InitInterfaceOptions()
 	optionsDatabaseTitle:SetText(LocStr(nil, "Database"))
 	currentOffsetX = offsetX
 	
-	local optionsDatabaseBothFactions = CreateFrame("CheckButton", "WhatsYourCovenant_DatabaseBothFactions", options, "OptionsCheckButtonTemplate")
+	local optionsDatabaseBothFactions = CreateFrame("CheckButton", "WhatsYourCovenant_DatabaseBothFactions", options, "InterfaceOptionsCheckButtonTemplate")
 	optionsDatabaseBothFactions:SetPoint("TOPLEFT", optionsDatabaseTitle, "BOTTOMLEFT", currentOffsetX, optionOffsetY)
 	optionsDatabaseBothFactions:SetScript("OnClick", function(self) WhatsYourCovenantConfig.database_BothFactions = not WhatsYourCovenantConfig.database_BothFactions end)
 	WhatsYourCovenant_DatabaseBothFactionsText:SetText(LocStr(nil, "View opposing faction's Covenant"))
 	currentOffsetX = 0
 	
-	local optionsDatabaseGeneratePersonal = CreateFrame("CheckButton", "WhatsYourCovenant_DatabaseGeneratePersonal", options, "OptionsCheckButtonTemplate")
+	local optionsDatabaseGeneratePersonal = CreateFrame("CheckButton", "WhatsYourCovenant_DatabaseGeneratePersonal", options, "InterfaceOptionsCheckButtonTemplate")
 	optionsDatabaseGeneratePersonal:SetPoint("TOPLEFT", optionsDatabaseBothFactions, "BOTTOMLEFT", currentOffsetX, optionOffsetY)
 	optionsDatabaseGeneratePersonal:SetScript("OnClick", function(self) WhatsYourCovenantConfig.database_BothFactions = not WhatsYourCovenantConfig.database_GeneratePersonal end)
 	WhatsYourCovenant_DatabaseGeneratePersonalText:SetText(LocStr(nil, "Generate a personal database (based on seeing players use abilities)"))
@@ -798,7 +801,7 @@ local function InitInterfaceOptions()
 	optionsUsabilityTitle:SetText(LocStr(nil, "Usability"))
 	currentOffsetX = offsetX
 	
-	local optionsUsabilityColourise = CreateFrame("CheckButton", "WhatsYourCovenant_UsabilityColourise", options, "OptionsCheckButtonTemplate")
+	local optionsUsabilityColourise = CreateFrame("CheckButton", "WhatsYourCovenant_UsabilityColourise", options, "InterfaceOptionsCheckButtonTemplate")
 	optionsUsabilityColourise:SetPoint("TOPLEFT", optionsUsabilityTitle, "BOTTOMLEFT", currentOffsetX, optionOffsetY)
 	optionsUsabilityColourise:SetScript("OnClick", function(self) WhatsYourCovenantConfig.usability_Colourise = not WhatsYourCovenantConfig.usability_Colourise end)
 	WhatsYourCovenant_UsabilityColouriseText:SetText(LocStr(nil, "Colourise the covenant names"))
